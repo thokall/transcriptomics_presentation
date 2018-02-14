@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Transcriptomics</title>
+<meta name="author" content="(Thomas Källman)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:///Users/thokall/apps/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="file:///Users/thokall/apps/reveal.js/css/theme/simple.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:///Users/thokall/apps/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Transcriptomics</h1><h2 class="author">Thomas Källman</h2><p class="date">Created: 2018-02-14 Wed 08:53</p>
+</section>
+
+<section>
+<section id="slide-org903bec7">
+<h2 id="org903bec7">Transcriptomics</h2>
+<ul>
+<li>Study the expressed RNA in a organism/cell</li>
+<li>The focus is most often messenger RNA (mRNA)</li>
+<li>Two main type of sequence data:
+<ul>
+<li>Long reads that capture the whole mRNA</li>
+<li>Short reads that needs to be assembled to a complete mRNA</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgcc20eab">
+<h2 id="orgcc20eab"></h2>
+
+<div class="figure">
+<p><img src="file:///Users/thokall/Documents/Presentation/RNA-seq.png" alt="RNA-seq.png" width="700px" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org5066400">
+<h2 id="org5066400">Why RNA-seq</h2>
+<ul>
+<li>Identify genes in genome sequences (Genome annotation)</li>
+<li>Investigate patterns of gene expression</li>
+<li>Comparative transcriptomics (phylogenomics)</li>
+<li>Identify genetic variation within species</li>
+<li>To expand the number of genetic markers in a species</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org1627c68">
+<h2 id="org1627c68">Typical data set</h2>
+<ul>
+<li>5-100 millions sequnces/sample</li>
+<li>Often represents 10-20 thousand genes</li>
+<li>For gene expression studies multiple replicates from each
+tissue/sample/timepoint is needed.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org4716648">
+<h2 id="org4716648">Two main paths of analysis</h2>
+
+<div class="figure">
+<p><img src="file:///Users/thokall/Documents/Presentation/twopaths.jpg" alt="twopaths.jpg" width="700px" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org308f017">
+<h2 id="org308f017">Genome annotation</h2>
+<ul>
+<li>For a comprehensive genomic annotation large number of different
+tissues and time points are need as genes can have a very specific
+expression pattern.</li>
+<li>One also wants to describe as many isoforms (splice variants) as
+possible and can hence make good use of long reads technologies.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc909e6b">
+<h2 id="orgc909e6b">Phylogenetic inference</h2>
+<ul>
+<li>Sequence or get access to RNA-seq data from multiple species</li>
+<li>Assemble the transcriptome for all of them</li>
+<li>Extract ortholog genes (Busco) and create alignment</li>
+<li>Infer phylogeny</li>
+
+</ul>
+</section>
+<section id="slide-orge549856">
+<h3 id="orge549856">Example: Shark phylogeny</h3>
+
+<div class="figure">
+<p><img src="file:///Users/thokall/Documents/Presentation/Shark.jpg" alt="Shark.jpg" width="800px" />
+</p>
+</div>
+
+
+<p>
+Time-calibrated phylogenetic tree of sharks. Based on analyses of
+1,102 genes obtained from RNA-seq data
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org9d477dc">
+<h2 id="org9d477dc">Genetic variation</h2>
+<ul>
+<li>Create a reference from RNA-seq data</li>
+<li>Align reads to the created reference and extract sequence variants</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf3279d1">
+<h2 id="orgf3279d1">Identify genetic markers</h2>
+<ul>
+<li>Assemble transcriptome sequence</li>
+<li>Identify regions of interest based</li>
+<li>Design primers and probes</li>
+<li>Evaluate on DNA</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org67aa640">
+<h2 id="org67aa640">What about costs and challenges</h2>
+<ul>
+<li>Two main types of sequencing: Long read or short read technologies</li>
+<li>Scilifelab offer the following:</li>
+
+</ul>
+</section>
+<section id="slide-org1a3563a">
+<h3 id="org1a3563a">Pacific Bioscience (Uppsala)</h3>
+<ul>
+<li>The main long read technology used today (up to 60kb read length)</li>
+<li>Requires high quality RNA and DNA</li>
+<li>To few sequences for doing expression studies</li>
+<li>15000SEK for around 200 thousand sequences (each of them being a
+full length transcript)</li>
+
+</ul>
+</section>
+<section id="slide-org503aad1">
+<h3 id="org503aad1">Illumina (Uppsala and Stockholm)</h3>
+<ul>
+<li>Short reads which means more downstream analysis</li>
+<li>Very competitive pricing per datapoint:
+<ul>
+<li>Around 1000SEK for preparing libraries (can also be done in-house
+here at NRM)</li>
+<li>Around 20000SEK for 180 million sequences (can be divided over
+multiple samples)</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org453d4ca">
+<h3 id="org453d4ca">Illumina example cost</h3>
+<ul>
+<li>An experiment with 10 samples that wants around 15 million reads/sample will
+cost: 
+<ul>
+<li>10000SEK (library preparation)</li>
+<li>20000SEK actual sequencing</li>
+<li>= around 3000SEK per sample</li>
+
+</ul></li>
+<li>The create the shark data set would hence cost just over 20000SEK</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///Users/thokall/apps/reveal.js/lib/js/head.min.js"></script>
+<script src="file:///Users/thokall/apps/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'file:///Users/thokall/apps/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'file:///Users/thokall/apps/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///Users/thokall/apps/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///Users/thokall/apps/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'file:///Users/thokall/apps/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

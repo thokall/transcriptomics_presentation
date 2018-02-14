@@ -1,0 +1,95 @@
+#+Title: Transcriptomics
+#+Author: Thomas Källman
+#+Email: thomas.kallman@nrm.se
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1200 reveal_height:800
+#+OPTIONS: toc:nil
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: default
+#+REVEAL_THEME: simple
+#+REVEAL_HLEVEL: 1
+
+* Transcriptomics
+- Study the expressed RNA in a organism/cell
+- The focus is most often messenger RNA (mRNA)
+- Two main type of sequence data:
+  - Long reads that capture the whole mRNA
+  - Short reads that needs to be assembled to a complete mRNA
+
+* 
+#+attr_html: :width 700px
+[[~/Documents/Presentation/RNA-seq.png]]
+
+* Why RNA-seq
+- Identify genes in genome sequences (Genome annotation)
+- Investigate patterns of gene expression
+- Comparative transcriptomics (phylogenomics)
+- Identify genetic variation within species
+- To expand the number of genetic markers in a species 
+
+* Typical data set
+- 5-100 millions sequnces/sample
+- Often represents 10-20 thousand genes 
+- For gene expression studies multiple replicates from each
+  tissue/sample/timepoint is needed.
+
+* Two main paths of analysis
+#+attr_html: :width 700px
+[[~/Documents/Presentation/twopaths.jpg]]
+
+* Genome annotation
+- For a comprehensive genomic annotation large number of different
+  tissues and time points are need as genes can have a very specific
+  expression pattern.
+- One also wants to describe as many isoforms (splice variants) as
+  possible and can hence make good use of long reads technologies.
+
+* Phylogenetic inference
+- Sequence or get access to RNA-seq data from multiple species
+- Assemble the transcriptome for all of them
+- Extract ortholog genes (Busco) and create alignment
+- Infer phylogeny
+** Example: Shark phylogeny 
+#+attr_html: :width 800px
+[[~/Documents/Presentation/Shark.jpg]]
+
+
+Time-calibrated phylogenetic tree of sharks. Based on analyses of
+1,102 genes obtained from RNA-seq data
+
+* Genetic variation
+- Create a reference from RNA-seq data
+- Align reads to the created reference and extract sequence variants
+
+* Identify genetic markers
+- Assemble transcriptome sequence
+- Identify regions of interest based
+- Design primers and probes
+- Evaluate on DNA
+
+* What about costs and challenges
+- Two main types of sequencing: Long read or short read technologies
+- Scilifelab offer the following:
+** Pacific Bioscience (Uppsala) 
+- The main long read technology used today (up to 60kb read length)
+- Requires high quality RNA and DNA
+- To few sequences for doing expression studies
+- 15000SEK for around 200 thousand sequences (each of them being a
+  full length transcript)
+** Illumina (Uppsala and Stockholm)
+- Short reads which means more downstream analysis
+- Very competitive pricing per datapoint:
+  - Around 1000SEK for preparing libraries (can also be done in-house
+    here at NRM)
+  - Around 20000SEK for 180 million sequences (can be divided over
+    multiple samples)
+** Illumina example cost
+- An experiment with 10 samples that wants around 15 million reads/sample will
+  cost: 
+  - 10000SEK (library preparation) 
+  - 20000SEK actual sequencing
+  - = around 3000SEK per sample
+- The create the shark data set would hence cost just over 20000SEK
